@@ -1665,8 +1665,8 @@ packages:
     resolution: {integrity: sha512-gYzvtM72ZtxQO0T048kd6HWSbbGCNOUwcnfQ01cqIJ4X2IYKFFHZ5mKvrQETcFXxsRObZulDaKmy//R7TPtsBg==}
     engines: {node: '>=20.19.0'}
 
-  dompurify@3.4.13:
-    resolution: {integrity: sha512-2vmYIoqjze2d+kakP8S/nS5shfsl587kzwEjcGlTdiksUVgFHnFCsLYDVj/JNqJVOQZGSYBTmuycv0PodwmnMQ==}
+  dompurify@3.4.17:
+    resolution: {integrity: sha512-B/pSlYVHQ58kqISD/yDjuJ1yfzI34m1gF4lAod2bwSRhiN4K5Cl3H8Af7hqB2PmTL911tdEudnnXn5FnhRoz0w==}
 
   dompurify@3.4.8:
     resolution: {integrity: sha512-yb1cEmaOum7wFvOCSQxyfgVlv5D47Rc30iZWoMpbDIWTnJ6grDDQyu2KFJzB2k7u0pMuJcQ1zphH//fFnw2tjQ==}
@@ -2636,7 +2636,7 @@ packages:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
 
   slidev-theme-wwt@https://codeload.github.com/jerdog/slidev-wwt-template/tar.gz/39a624fbafcb7a626aa68214d60735b79c8ba606:
-    resolution: {gitHosted: true, tarball: https://codeload.github.com/jerdog/slidev-wwt-template/tar.gz/39a624fbafcb7a626aa68214d60735b79c8ba606}
+    resolution: {gitHosted: true, integrity: sha512-vO/am7vL37nzIQX0tBPw6ZdLKITmNz4bia5LkrrVKN1rEaTIMNF/cA0XcWNy9ZV29zRYrqtd1I77BPSWRPZ16g==, tarball: https://codeload.github.com/jerdog/slidev-wwt-template/tar.gz/39a624fbafcb7a626aa68214d60735b79c8ba606}
     version: 0.4.6
     engines: {node: '>=20', pnpm: '>=9'}
     peerDependencies:
@@ -5090,7 +5090,7 @@ snapshots:
     dependencies:
       domelementtype: 3.0.0
 
-  dompurify@3.4.13:
+  dompurify@3.4.17:
     optionalDependencies:
       '@types/trusted-types': 2.0.7
 
@@ -5716,7 +5716,7 @@ snapshots:
       d3-sankey: 0.12.3
       dagre-d3-es: 7.0.14
       dayjs: 1.11.23
-      dompurify: 3.4.13
+      dompurify: 3.4.17
       es-toolkit: 1.53.1
       fastdom: 1.0.12
       katex: 0.16.47
