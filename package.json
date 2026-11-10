@@ -1,0 +1,19 @@
+{
+  "name": "talk-devex-agentic-engineering-world",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^52.18.0",
+    "slidev-theme-wwt": "github:jerdog/slidev-wwt-template",
+    "vue": "^3.5.33"
+  },
+  "devDependencies": {
+    "@slidev/parser": "^52.18.0",
+    "playwright-chromium": "^1.62.1"
+  }
+}
