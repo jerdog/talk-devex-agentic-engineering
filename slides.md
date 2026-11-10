@@ -67,6 +67,7 @@ I work in AI-native solution architecture, which means I live at the intersectio
 ---
 layout: stats
 title: AI is an amplifier
+clicks: 0
 stats:
   - value: "+59%"
     label: throughput, YoY
@@ -84,6 +85,13 @@ stats:
 <style>
 /* The stats layout has no body slot, so pin the source line above the footer
    with a pseudo-element on the layout root (this slide's scoped hash is on it). */
+/* Show every stat at once, with no click-through. The layout reveals stats with
+   v-clicks, so keep them visible here and tell Slidev (clicks: 0) that this
+   slide has no click steps. */
+:deep(.slidev-vclick-hidden) {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
 .wwt-stats::after {
   content: "Sources: CircleCI 2026 State of Software Delivery (28M CI workflows); DORA 2025.";
   position: absolute;
@@ -98,7 +106,7 @@ stats:
 <!--
 DORA, the research group that has studied engineering performance for over a decade, surveyed nearly 5,000 technology professionals and landed on one sentence: AI is an amplifier. It doesn't fix a struggling organization. It takes whatever is already true about a team and produces more of it.
 
-[click] CircleCI shows what that looks like in pipeline data, not a survey: 28 million workflows, throughput up 59% year over year. [click] Almost all of that sits with the top 5% of teams, who nearly doubled their output. [click] The median team improved 4%. [click] The bottom quarter didn't move at all.
+CircleCI shows what that looks like in pipeline data, not a survey: 28 million workflows, throughput up 59% year over year. Almost all of that sits with the top 5% of teams, who nearly doubled their output. The median team improved 4%. The bottom quarter didn't move at all.
 
 Same tools. Same models. Radically different outcomes. That is the bridge into this talk: what the amplifier amplifies is your developer experience.
 
@@ -273,6 +281,7 @@ Heroku set the DevEx bar for a decade: a git push and you're live. [click] In th
 ---
 layout: stats
 title: Throughput is a vanity metric
+clicks: 0
 stats:
   - value: "+15%"
     label: feature-branch throughput, median team
@@ -302,6 +311,13 @@ stats:
   overflow-wrap: normal;
 }
 /* Source line, pinned above the footer (the stats layout has no body slot). */
+/* Show every stat at once, with no click-through. The layout reveals stats with
+   v-clicks, so keep them visible here and tell Slidev (clicks: 0) that this
+   slide has no click steps. */
+:deep(.slidev-vclick-hidden) {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
 .wwt-stats::after {
   content: "Sources: CircleCI 2026 State of Software Delivery and its July 2026 follow-up.";
   position: absolute;
@@ -314,7 +330,7 @@ stats:
 </style>
 
 <!--
-Lines of code were always gameable. Now a defensible-looking diff is free, so volume measures nothing. CircleCI split the same pipeline data by branch type. [click] Feature-branch throughput rose for nearly every team, a 15% gain for the median team. [click] Main-branch throughput, the code that actually reaches customers, fell 7% for that same median team. [click] And the main-branch success rate hit 70.8%, the lowest in five years, against a 90% benchmark. CircleCI's July 2026 follow-up shows it recovering to 76.7%, still short of the mid-80s teams hit in 2023 and 2024.
+Lines of code were always gameable. Now a defensible-looking diff is free, so volume measures nothing. CircleCI split the same pipeline data by branch type. Feature-branch throughput rose for nearly every team, a 15% gain for the median team. Main-branch throughput, the code that actually reaches customers, fell 7% for that same median team. And the main-branch success rate hit 70.8%, the lowest in five years, against a 90% benchmark. CircleCI's July 2026 follow-up shows it recovering to 76.7%, still short of the mid-80s teams hit in 2023 and 2024.
 
 Developers are producing more code than ever. Very little of the increase is reaching production. If velocity is the only thing you measure, the measurement is hiding the problem.
 -->
@@ -393,7 +409,6 @@ Predicted faster. Felt faster. Measured slower. That is a developer-experience f
 ---
 layout: boxes
 title: Four pillars of world-class DevEx
-reveal: true
 boxes:
   - title: Fast, high-quality feedback loops
     detail: Agent output validation is part of the loop, not an afterthought.
@@ -406,7 +421,7 @@ boxes:
 ---
 
 <!--
-The three original pillars from the ACM Queue framing (feedback loops, cognitive load, flow state) all survive contact with agentic tooling. They just get harder. The fourth is emerging in 2026 conversations: calibrated trust and governance. Teams that treat "which agent can touch which part of the codebase, under what review policy" as a deliberate design decision see fewer disasters than teams that just let the agent open PRs. Click through one at a time.
+The three original pillars from the ACM Queue framing (feedback loops, cognitive load, flow state) all survive contact with agentic tooling. They just get harder. The fourth is emerging in 2026 conversations: calibrated trust and governance. Teams that treat "which agent can touch which part of the codebase, under what review policy" as a deliberate design decision see fewer disasters than teams that just let the agent open PRs.
 -->
 
 ---
