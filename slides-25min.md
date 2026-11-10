@@ -176,34 +176,98 @@ Experience is the cause. Productivity is the effect.
 
 <!--
 These definitions haven't changed. What changed is the actor: "developer" now sometimes means a human, sometimes an agent acting on a human's behalf, and increasingly a human orchestrating several agents at once. The roots (tools, process, cognitive load, flow, and now trust in agent output) still determine the fruit.
-
-DevEx as a concept dates to a 2012 paper presented at an IEEE conference in Zurich Fagerholm and Münch, "Developer experience: Concept and definition"), with roots in a 1985 research on programmer performance. Agentic tooling is the newest way of working those authors couldn't have anticipated, but the lens still applies.
 -->
 
 ---
-layout: code-focus
-title: The old gold standard
+layout: image-feature
+side: left
+image: /images/slides/cornell-devex.jpg
+imageAlt: "Title page of the 2012 IEEE paper 'Developer experience: Concept and definition' by Fagerholm and Münch"
 ---
 
-```bash
-git push heroku main
-```
+## DevEx isn't new
 
-<!-- code-focus has no footer of its own, so add the theme's Footer here to get
-     the bottom-left WWT logo, page number and dark-mode toggle. -->
-<Footer />
+> "...developer experience could be defined as a means for capturing how developers think and feel about their activities within their working environments, with the assumption that an improvement of the developer experience has positive impacts on characteristics such as sustained team and project performance."
+
+_Fagerholm and Münch, "Developer experience: Concept and definition," 2012._
+
+Source: <a href="https://ieeexplore.ieee.org/document/6225984" target="_blank">IEEE Xplore</a>
+
+<!--
+But DevEx isn't a new thing. The first mention of "developer experience" as a concept was in a paper presented at the 2012 IEEE International Conference on Software and System Process in Zurich, and it has references going back to 1985 on "programmer performance and the effects of the workplace." The line that stands out: DevEx is a means for capturing how developers think and feel about their activities at work, with the assumption that improving it has positive effects on sustained team and project performance.
+
+Agentic tooling is the newest way of working those authors couldn't have anticipated, but their lens still applies. And a lot of today's interest in DevEx is driven top-down by companies trying to sell you something, with very little focus on developers themselves. That doesn't mean there's no value in the frameworks, but we need to be careful about how we use them.
+
+Paper: https://ieeexplore.ieee.org/document/6225984
+-->
+
+---
+layout: default
+---
+
+# The bar moved
+
+<div class="cmp">
+<div>
+<p class="cmp__label">Then</p>
+<div class="term"><p class="term__cmd"><b>$</b> git push heroku main</p></div>
+<p class="cmp__cap">Ship your own code, effortlessly.</p>
+</div>
+<div v-click>
+<p class="cmp__label cmp__label--now">Now</p>
+<div class="term"><p class="term__cmd"><b>$</b> agent "fix flaky test"</p></div>
+<p class="cmp__cap">Direct, review and "trust" an agent's code, effortlessly(?).</p>
+</div>
+</div>
 
 <style>
-/* The footer's muted grey is meant for light slides. On this dark layout the
-   page number and toggle disappear, so lighten them here. */
-:deep(.wwt-footer) {
-  color: var(--wwt-ink-white) !important;
-  opacity: 0.8;
+/* Then / now: two terminal cards side by side. Sized so each command stays on
+   one line in its column. */
+.cmp {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.cmp__label {
+  margin: 0 0 0.5rem;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--wwt-ink-muted);
+}
+.cmp__label--now {
+  color: var(--wwt-primary-base);
+}
+.cmp__cap {
+  margin: 1rem 0 0;
+  font-size: 24px;
+  line-height: 1.35;
+  color: var(--wwt-ink-muted);
+}
+.term {
+  background: var(--wwt-accent7-base);
+  color: #fff;
+  border-radius: 14px;
+  padding: 1.5rem 1rem 1.5rem 1.25rem;
+  box-shadow: 0 10px 30px rgba(10, 11, 25, 0.25);
+  font-family: "Fira Code", ui-monospace, Menlo, Consolas, monospace;
+}
+.term__cmd {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.term__cmd b {
+  color: var(--wwt-primary-light);
+  margin-right: 0.5rem;
 }
 </style>
 
 <!--
-Heroku set the DevEx bar for a decade: a git push and you're live. In this era the bar moved. It's no longer "can I ship my own code effortlessly," it's "can I direct, review and trust an agent's code effortlessly." The tools changed. The underlying want, remove friction between idea and running software, did not.
+Heroku set the DevEx bar for a decade: a git push and you're live. [click] In this era the bar moved. It's no longer "can I ship my own code effortlessly," it's "can I direct, review and trust an agent's code effortlessly." The tools changed. The underlying want, remove friction between idea and running software, did not.
 -->
 
 ---

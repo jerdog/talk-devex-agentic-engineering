@@ -3,3 +3,4 @@ node_modules/
 .slidev/
 dist/
 slides-export/
+.DS_Store
