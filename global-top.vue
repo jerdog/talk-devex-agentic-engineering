@@ -40,4 +40,20 @@
 .show-top-logo .wwt-monogram-mark {
   display: block !important;
 }
+
+/* Click-reveal option. With `htmlAttrs: data-click-reveal: "off"` in the deck's
+   headmatter, content that a layout (stats, process, timeline, boxes with
+   `reveal`) or a `v-click` would hide until clicked is always shown. Clicks
+   still advance, so the [click] cues in the speaker notes step through as
+   usual; set each slide's `clicks:` to its number of cues.
+   To bring click reveal back deck-wide, remove that headmatter line. To bring
+   it back on a single slide, add this to that slide's frontmatter:
+
+     class: reveal-on-click
+
+   !important because the framework hides these with its own rule. */
+html[data-click-reveal="off"] .slidev-layout:not(.reveal-on-click) .slidev-vclick-hidden {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
 </style>
