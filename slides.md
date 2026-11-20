@@ -240,7 +240,7 @@ imageAlt: "Title page of the 2012 IEEE paper 'Developer experience: Concept and 
 _Fagerholm and Münch, "Developer experience: Concept and definition," 2012._
 
 <!--
-The same paper makes a second point. In 2012 the new ways of working were globally distributed teams and external developers joining software ecosystems. Their argument: when the way of working changes, you need a better understanding of how developers feel, what they perceive and what motivates them. Agentic tooling is the newest way of working those authors couldn't have anticipated. A teammate that isn't a person, writing code that a person has to answer for. Their lens still applies. The question is the same one: how does this feel to the people doing the work?
+The same paper makes a second point. In 2012 the new ways of working were globally distributed teams and external developers joining software ecosystems. Their argument: **when the way of working changes, you need a better understanding of how developers feel, what they perceive and what motivates them.** Agentic tooling is the newest way of working those authors couldn't have anticipated. A teammate that isn't a person, writing code that a person has to answer for. Their lens still applies. The question is the same one: how does this feel to the people doing the work?
 -->
 
 ---
@@ -432,7 +432,9 @@ boxes:
     detail: Joined the original four in 2024.
 ---
 
-None of the five can tell you whether a person or a model wrote the change.
+None of the five can tell you whether a person or a model wrote the change.<br /><br />
+
+_Source: WWT, "Your AI adoption number is lying to you."_
 
 <style>
 /* Tighter card type so the grid and any closing line clear the footer.
@@ -469,7 +471,8 @@ None of the five can tell you whether a person or a model wrote the change.
 <!--
 DORA has tracked five metrics since 2024, when Deployment Rework Rate joined the original four and Mean Time to Recovery became Failed Deployment Recovery Time. They are still the right metrics. They tell you what is happening. They don't tell you why, and they can't tell you whether a person or a model wrote the change.
 
-[click]That's a real attribution gap. And once AI writes somewhere between 30% and 70% of committed code, deployment frequency and lead time on their own turn misleading. Pair them with AI attribution, and look at throughput by percentile, not average. We'll come back to that. Source: WWT, "Your AI adoption number is lying to you."
+[click]That's a real attribution gap. And once AI writes somewhere between 30% and 70% of committed code, deployment frequency and lead time on their own turn misleading. Pair them with AI attribution, and look at throughput by percentile, not average. We'll come back to that.
+
 -->
 
 ---
@@ -585,7 +588,8 @@ Lines of code were always gameable. Now a defensible-looking diff is free, so vo
 ---
 layout: stats
 title: The verification tax has a price tag
-clicks: 2
+clicks: 4
+class: reveal-on-click
 stats:
   - value: "250"
     label: hours lost a year
@@ -627,9 +631,9 @@ stats:
 </style>
 
 <!--
-Slow feedback has a cost, and CircleCI modeled it. A team pushing five changes a day whose main-branch success rate drops from 90% to 70%, at a 60-minute recovery time, loses roughly 250 hours a year to debugging and blocked releases.
+Slow feedback has a cost, and CircleCI modeled it. [click]A team pushing five changes a day whose main-branch success rate drops from 90% to 70%, at a 60-minute recovery time, loses roughly 250 hours a year to debugging and blocked releases.
 
-[click]At 500 changes a day, where CircleCI's top teams operate, that same drop equals twelve full-time engineers lost to friction that never shows up on a headcount report. In dollars: a 50-developer team shipping about 3,000 changes a month can spend roughly $900,000 a year on unoptimized, agent-heavy workflows, much of it agents sitting idle waiting for feedback.
+[click]At 500 changes a day, where CircleCI's top teams operate, that same drop equals twelve full-time engineers lost to friction that never shows up on a headcount report. [click]In dollars: a 50-developer team shipping about 3,000 changes a month can spend roughly $900,000 a year on unoptimized, agent-heavy workflows, much of it agents sitting idle waiting for feedback.
 
 [click]Move validation earlier in the loop and you recover $700,000 or more of that. These are modeled scenarios, so say so. But notice who's waiting: now it's the agents too.
 -->
@@ -637,7 +641,7 @@ Slow feedback has a cost, and CircleCI modeled it. A team pushing five changes a
 ---
 layout: stats
 title: "Tokenmaxxing: activity, not outcomes"
-clicks: 1
+clicks: 4
 stats:
   - value: "85,000"
     label: employees on a leaderboard
@@ -676,7 +680,7 @@ stats:
 </style>
 
 <!--
-This year gave us the clearest example of the vanity-metric mistake. Several major tech companies briefly built internal leaderboards ranking employees by how many AI tokens they consumed. It has a name now: tokenmaxxing. One company reportedly tracked 85,000 employees and 60 trillion tokens in a single month. Another burned through an entire year's AI budget in four months. Both walked it back within weeks, for the obvious reason.
+This year gave us the clearest example of the vanity-metric mistake. Several major tech companies briefly built internal leaderboards ranking employees by how many AI tokens they consumed. It has a name now: tokenmaxxing. [click]One company reportedly tracked 85,000 employees and [click]60 trillion tokens in a single month. [click]Another burned through an entire year's AI budget in four months. Both walked it back within weeks, for the obvious reason.
 
 [click]Measuring tokens consumed without measuring what shipped rewards activity, not outcomes. It's Goodhart's Law with a billing page. These figures are reported, not audited, so attribute them. Don't name the companies. Measure what shipped instead: that's the four-layer model later.
 -->
@@ -785,7 +789,7 @@ Who actually pays? Start with the failure mode. Junior-written code tends to fai
 ---
 layout: stats
 title: Where teams tend to sit
-clicks: 0
+clicks: 3
 stats:
   - value: "7"
     label: team archetypes
@@ -824,7 +828,7 @@ stats:
 </style>
 
 <!--
-DORA sorted its survey into seven statistical team archetypes, and the distribution matters if you're deciding how fast to expand agentic workflows. Roughly 38% of teams are in genuine difficulty: fundamental process gaps, unresolved tech debt, or overhead heavy enough to absorb any efficiency gained elsewhere. Roughly 40% are already performing well. The rest sit in between. For that first group, adding AI without fixing the platform underneath makes existing problems more visible and more expensive, not less. The right first investment is the platform, not the tooling layer on top. Be honest about which group you're in before you scale.
+DORA sorted its survey into [click]seven statistical team archetypes, and the distribution matters if you're deciding how fast to expand agentic workflows. [click]Roughly 38% of teams are in genuine difficulty: fundamental process gaps, unresolved tech debt, or overhead heavy enough to absorb any efficiency gained elsewhere. [click]Roughly 40% are already performing well. The rest sit in between. For that first group, adding AI without fixing the platform underneath makes existing problems more visible and more expensive, not less. The right first investment is the platform, not the tooling layer on top. Be honest about which group you're in before you scale.
 -->
 
 ---
@@ -1030,6 +1034,12 @@ steps:
    (unequal widths, text running past the footer). Lay them out as five rows:
    number | step name | detail. The markup is unchanged, so the click-through
    reveal still works. :deep() because the layout renders the list. */
+/* Show every step at once, with no click-through (clicks: 0 in the frontmatter
+   tells Slidev this slide has no click steps). */
+:deep(.slidev-vclick-hidden) {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
 :deep(.wwt-process__steps) {
   grid-auto-flow: row !important;
   grid-auto-columns: auto !important;
@@ -1121,7 +1131,7 @@ Ask most engineering leaders how AI adoption is going and you'll get a number: s
 
 ---
 layout: boxes
-clicks: 1
+clicks: 2
 title: Measure in four layers
 boxes:
   - title: AI footprint
@@ -1156,13 +1166,15 @@ Source: WWT, "Your AI adoption number is lying to you."
 <!--
 Here's the structure I'd use for a dashboard. Layer one, AI footprint: how much of your pipeline AI is touching. Percent of committed code that's AI-assisted is the real denominator for everything else. Add the gap between sanctioned and shadow use, and the share of PRs an agent opened without a human starting them.
 
-[click]Most organizations don't track that last one, and no industry figure exists yet, which is itself a signal. Layer two, delivery: DORA's five metrics, with throughput by percentile, not average. Layer three, verification, where the friction moved: Merge Efficiency Ratio (validation cycles per change, lower is better), review time and no-review-merge rate split by author type, and cost per shipped change. Layer four, outcome: AI-attributed change failure rate against your overall number, incidents per PR, the perceived-versus-measured productivity gap, and your pilot-to-production conversion rate.
+[click]Most organizations don't track that last one, and no industry figure exists yet, which is itself a signal. Layer two, delivery: DORA's five metrics, with throughput by percentile, not average. Layer three, verification, where the friction moved:
+
+[click]Merge Efficiency Ratio (validation cycles per change, lower is better), review time and no-review-merge rate split by author type, and cost per shipped change. Layer four, outcome: AI-attributed change failure rate against your overall number, incidents per PR, the perceived-versus-measured productivity gap, and your pilot-to-production conversion rate.
 -->
 
 ---
 layout: stats
 title: The verification layer, measured
-clicks: 2
+clicks: 4
 stats:
   - value: "+441%"
     label: median PR review time
@@ -1206,9 +1218,9 @@ stats:
 <!--
 This is the verification layer in real telemetry. Faros AI looked at 22,000 developers and compared low and high AI-adoption periods. Median PR review time rose 441%. PRs merging with no review at all rose 31%.
 
-[click]Read those two together. Rising review time means someone is looking. A rising no-review rate means the safety net is being skipped. And incidents per PR rose 242.7%, so the odds of a production incident per merged change more than tripled. Paired with the no-review rate, that's the clearest sign that speed and safety have decoupled.
+[click]Rising review time means someone is looking. A rising no-review rate means the safety net is being skipped. [click]And incidents per PR rose 242.7%, so the odds of a production incident per merged change more than tripled. Paired with the no-review rate, that's the clearest sign that speed and safety have decoupled.
 
-[click]Now the good news, from CircleCI: elite organizations grew main-branch throughput 72% in a year while cutting cost per shipped change 31%. More throughput at lower cost per change is the proof AI is paying for itself. The elite teams are the ones who built the verification layer.
+[click]Now the good news, from CircleCI: elite organizations grew main-branch throughput 72% in a year [click]while cutting cost per shipped change 31%. More throughput at lower cost per change is the proof AI is paying for itself. The elite teams are the ones who built the verification layer.
 -->
 
 ---
@@ -1447,6 +1459,10 @@ steps:
    Lay them out as rows: number | step name | detail. The markup is unchanged,
    so the click-through reveal still works. :deep() because the layout renders
    the list. */
+:deep(.slidev-vclick-hidden) {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
 :deep(.wwt-process__steps) {
   grid-auto-flow: row !important;
   grid-auto-columns: auto !important;
