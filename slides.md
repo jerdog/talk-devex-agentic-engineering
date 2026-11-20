@@ -87,13 +87,6 @@ stats:
 <style>
 /* The stats layout has no body slot, so pin the source line above the footer
    with a pseudo-element on the layout root (this slide's scoped hash is on it). */
-/* Show every stat at once, with no click-through. The layout reveals stats with
-   v-clicks, so keep them visible here and tell Slidev (clicks: 0) that this
-   slide has no click steps. */
-:deep(.slidev-vclick-hidden) {
-  opacity: 1 !important;
-  pointer-events: auto !important;
-}
 .wwt-stats::after {
   content: "Sources: CircleCI 2026 State of Software Delivery (28M CI workflows); DORA 2025.";
   position: absolute;
@@ -561,13 +554,6 @@ stats:
   overflow-wrap: normal;
 }
 /* Source line, pinned above the footer (the stats layout has no body slot). */
-/* Show every stat at once, with no click-through. The layout reveals stats with
-   v-clicks, so keep them visible here and tell Slidev (clicks: 0) that this
-   slide has no click steps. */
-:deep(.slidev-vclick-hidden) {
-  opacity: 1 !important;
-  pointer-events: auto !important;
-}
 .wwt-stats::after {
   content: "Sources: CircleCI 2026 State of Software Delivery and its July 2026 follow-up.";
   position: absolute;
@@ -588,7 +574,7 @@ Lines of code were always gameable. Now a defensible-looking diff is free, so vo
 ---
 layout: stats
 title: The verification tax has a price tag
-clicks: 1
+clicks: 2
 stats:
   - value: "250"
     label: hours lost a year
@@ -616,12 +602,6 @@ stats:
   font-size: 20cqi !important;
   white-space: nowrap;
   overflow-wrap: normal;
-}
-/* Show every stat at once, with no click-through (clicks: 0 in the frontmatter
-   tells Slidev this slide has no click steps). */
-:deep(.slidev-vclick-hidden) {
-  opacity: 1 !important;
-  pointer-events: auto !important;
 }
 /* Source line, pinned above the footer (the stats layout has no body slot). */
 .wwt-stats::after {
@@ -671,12 +651,6 @@ stats:
   font-size: 24cqi !important;
   white-space: nowrap;
   overflow-wrap: normal;
-}
-/* Show every stat at once, with no click-through (clicks: 0 in the frontmatter
-   tells Slidev this slide has no click steps). */
-:deep(.slidev-vclick-hidden) {
-  opacity: 1 !important;
-  pointer-events: auto !important;
 }
 /* Source line, pinned above the footer (the stats layout has no body slot). */
 .wwt-stats::after {
@@ -820,12 +794,6 @@ stats:
   font-size: 24cqi !important;
   white-space: nowrap;
   overflow-wrap: normal;
-}
-/* Show every stat at once, with no click-through (clicks: 0 in the frontmatter
-   tells Slidev this slide has no click steps). */
-:deep(.slidev-vclick-hidden) {
-  opacity: 1 !important;
-  pointer-events: auto !important;
 }
 /* Source line, pinned above the footer (the stats layout has no body slot). */
 .wwt-stats::after {
@@ -1043,12 +1011,6 @@ steps:
    (unequal widths, text running past the footer). Lay them out as five rows:
    number | step name | detail. The markup is unchanged, so the click-through
    reveal still works. :deep() because the layout renders the list. */
-/* Show every step at once, with no click-through (clicks: 0 in the frontmatter
-   tells Slidev this slide has no click steps). */
-:deep(.slidev-vclick-hidden) {
-  opacity: 1 !important;
-  pointer-events: auto !important;
-}
 :deep(.wwt-process__steps) {
   grid-auto-flow: row !important;
   grid-auto-columns: auto !important;
@@ -1115,12 +1077,6 @@ stats:
   font-size: 24cqi !important;
   white-space: nowrap;
   overflow-wrap: normal;
-}
-/* Show every stat at once, with no click-through (clicks: 0 in the frontmatter
-   tells Slidev this slide has no click steps). */
-:deep(.slidev-vclick-hidden) {
-  opacity: 1 !important;
-  pointer-events: auto !important;
 }
 /* Source line, pinned above the footer (the stats layout has no body slot). */
 .wwt-stats::after {
@@ -1215,12 +1171,6 @@ stats:
   font-size: 20cqi !important;
   white-space: nowrap;
   overflow-wrap: normal;
-}
-/* Show every stat at once, with no click-through (clicks: 0 in the frontmatter
-   tells Slidev this slide has no click steps). */
-:deep(.slidev-vclick-hidden) {
-  opacity: 1 !important;
-  pointer-events: auto !important;
 }
 /* Source line, pinned above the footer (the stats layout has no body slot). */
 .wwt-stats::after {

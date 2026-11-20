@@ -72,7 +72,8 @@ I work in AI-native solution architecture, which means I live at the intersectio
 ---
 layout: stats
 title: AI is an amplifier
-clicks: 3
+clicks: 4
+class: reveal-on-click
 stats:
   - value: "+59%"
     label: throughput, YoY
@@ -90,13 +91,8 @@ stats:
 <style>
 /* The stats layout has no body slot, so pin the source line above the footer
    with a pseudo-element on the layout root (this slide's scoped hash is on it). */
-/* Show every stat at once, with no click-through. The layout reveals stats with
-   v-clicks, so keep them visible here and tell Slidev (clicks: 0) that this
-   slide has no click steps. */
-:deep(.slidev-vclick-hidden) {
-  opacity: 1 !important;
-  pointer-events: auto !important;
-}
+/* Stats reveal on click here: `class: reveal-on-click` in the frontmatter opts
+   this slide out of the deck-wide always-visible option (see global-top.vue). */
 .wwt-stats::after {
   content: "Sources: CircleCI 2026 State of Software Delivery (28M CI workflows); DORA 2025.";
   position: absolute;
@@ -111,11 +107,11 @@ stats:
 <!--
 DORA, the research group that has studied engineering performance for over a decade, surveyed nearly 5,000 technology professionals and landed on one sentence: AI is an amplifier. It doesn't fix a struggling organization. It takes whatever is already true about a team and produces more of it. Fast.
 
-[click]CircleCI, for the past 6 or 7 years, has taken a similar approach to DORA, but using actual pipeline data, not a survey: 28 million workflows, throughput up 59% year over year. Almost all of that sits with the top 5% of teams, who nearly doubled their output. The median team improved 4%. The bottom quarter didn't move at all.
+[click]CircleCI, for the past 6 or 7 years, has taken a similar approach to DORA, but using actual pipeline data, not a survey: 28 million workflows, throughput up 59% year over year. [click]Almost all of that sits with the top 5% of teams, who nearly doubled their output. [click]The median team improved 4%. [click]The bottom quarter didn't move at all.
 
-[click]AI as an amplifier ends up amplifying the developer experience of your engineers, practitioners, those using your tools, and even agents themselves.
+AI as an amplifier ends up amplifying the developer experience of your engineers, practitioners, those using your tools, and even agents themselves. I will be using a number of stats, from DORA, CircleCI, Atlassian, and others. They've all independently reached the same conclusion on their own.
 
-[click]I will be using a number of stats, from DORA, CircleCI, Atlassian, and others. They've all independently reached the same conclusion on their own. Here's the next twenty minutes: where the friction went, why our measurements can't see it, and what to do about it on Monday.
+What we're going to cover over the next twenty minutes: where the friction went, why our measurements can't see it, and what to do about it on Monday.
 -->
 
 ---
@@ -190,7 +186,7 @@ Experience is the cause. Productivity is the effect.
 <!--
 DevEx is the leading indicator of the developer's lived reality. Productivity is the lagging indicator of business impact after the fact. Fix the experience and productivity follows.
 
-The definitions of Developer Experience and Developer Productivity haven't changed. What has changed is the actor: "developer" now sometimes means a human, sometimes an agent acting on a human's behalf, and increasingly a human orchestrating several agents at once. The roots (tools, process, cognitive load, flow) still determine the fruit, and now there's a new root: whether you trust what the agent gives you.
+These definitions haven't changed. What has changed is the actor: "developer" now sometimes means a human, sometimes an agent acting on a human's behalf, and increasingly a human orchestrating several agents at once. The roots (tools, process, cognitive load, flow) still determine the fruit, but now there's a new root: whether you trust what the agent gives you.
 -->
 
 ---
@@ -209,9 +205,9 @@ _Fagerholm and Münch, "Developer experience: Concept and definition," 2012._
 Source: <a href="https://ieeexplore.ieee.org/document/6225984" target="_blank">IEEE Xplore</a>
 
 <!--
-But DevEx isn't a new thing. The first mention of "developer experience" as a concept was in a paper presented at the 2012 IEEE International Conference on Software and System Process in Zurich, and it has references going back to 1985 on "programmer performance and the effects of the workplace." The line that stands out: DevEx is a means for capturing how developers think and feel about their activities at work, with the assumption that improving it has positive effects on sustained team and project performance.
+But DevEx isn't a new thing. The first mention of "developer experience" as a concept was in a paper presented at a 2012 IEEE International Conference in Zurich, and it has references going back to 1985 on "programmer performance and the effects of the workplace." The line that stands out: **DevEx is a means for capturing how developers think and feel about their activities at work, with the assumption that improving it has positive effects on sustained team and project performance.**
 
-Notice the word "feel". Remember it: in a few minutes the data will show that how developers feel and what we measure don't agree.
+Notice the word "feel". In a few minutes we'll look at the data showing how those feelings and what we measure don't agree.
 
 Paper: https://ieeexplore.ieee.org/document/6225984
 -->
@@ -283,7 +279,7 @@ clicks: 1
 </style>
 
 <!--
-Heroku set the DevEx bar for a decade: a git push and you're live. [click] In this era the bar moved. It's no longer "can I ship my own code effortlessly," it's "can I direct, review and trust an agent's code effortlessly." The tools changed. The underlying want, remove friction between idea and running software, did not.
+Heroku set the DevEx bar for a decade: a git push and you're live. [click] In this era the bar moved. It's no longer "can I ship my own code effortlessly," it's "can I direct, review and trust an agent's code effortlessly." The tools changed. The underlying desire, remove friction between idea and running software, did not.
 -->
 
 ---
@@ -305,7 +301,8 @@ It's still a culture problem being sold as a tooling problem. DevOps is about re
 ---
 layout: stats
 title: Throughput is a vanity metric
-clicks: 1
+clicks: 4
+class: reveal-on-click
 stats:
   - value: "+15%"
     label: feature-branch throughput, median team
@@ -335,13 +332,6 @@ stats:
   overflow-wrap: normal;
 }
 /* Source line, pinned above the footer (the stats layout has no body slot). */
-/* Show every stat at once, with no click-through. The layout reveals stats with
-   v-clicks, so keep them visible here and tell Slidev (clicks: 0) that this
-   slide has no click steps. */
-:deep(.slidev-vclick-hidden) {
-  opacity: 1 !important;
-  pointer-events: auto !important;
-}
 .wwt-stats::after {
   content: "Sources: CircleCI 2026 State of Software Delivery and its July 2026 follow-up.";
   position: absolute;
@@ -354,14 +344,18 @@ stats:
 </style>
 
 <!--
-Lines of code were always gameable. Now a defensible-looking diff is free, so volume measures nothing. CircleCI split the same pipeline data by branch type. Feature-branch throughput rose for nearly every team, a 15% gain for the median team. Main-branch throughput, the code that actually reaches customers, fell 7% for that same median team. And the main-branch success rate hit 70.8%, the lowest in five years, against a 90% benchmark. CircleCI's July 2026 follow-up shows it recovering to 76.7%, still short of the mid-80s teams hit in 2023 and 2024.
+Lines of code were always gameable. Now a defensible-looking diff is free, so volume measures nothing. CircleCI split the same pipeline data by branch type.
 
-[click]Developers are producing more code than ever. Very little of the increase is reaching production. If velocity is the only thing you measure, the measurement is hiding the problem. Hold onto main-branch success rate: it's the first number on the scorecard at the end.
+[click]**Feature-branch throughput rose for nearly every team**, a 15% gain for the median team. [click]**Main-branch throughput, the code that actually reaches customers, fell 7% for that same median team.**
+[click]And the main-branch success rate hit 70.8%, the lowest in five years, against a 90% benchmark. CircleCI's July 2026 follow-up shows it recovering to 76.7%, still short of the mid-80s teams hit in 2023 and 2024.
+
+[click]Developers are producing more code than ever. Very little of the increase is reaching production. If velocity is the only thing you measure, the measurement is hiding the problem.
 -->
 
 ---
 layout: boxes
 title: Three frameworks, one shared assumption
+clicks: 3
 boxes:
   - title: DORA (2014)
     detail: Speed and stability, commit to deploy. Four key metrics.
@@ -374,9 +368,12 @@ boxes:
 All three assume a human is the one typing.
 
 <!--
-In 2014 DORA set the gold standard for measuring DevOps pipeline health, proving that speed and stability are not trade-offs. In 2021 SPACE added a human-centric model: productivity is multi-dimensional, and satisfaction, well-being and collaboration count. In 2024 DX Core 4 tried to unify the two and tie engineering effort to business outcomes. Largely, these frameworks are aimed at the business and its bottom line, not the developer, and a lot of today's DevEx interest is driven top-down by companies selling something. That doesn't mean the frameworks lack value, but be careful how you use them. Anyone using them? Good value in all three.
+In 2014 DORA set the gold standard for measuring DevOps pipeline health, proving that speed and stability are not trade-offs.
 
-Here is the twist for this talk: every one of them quietly assumes a human is the one typing. When an agent writes the code, what do they still measure? That is the rest of this talk.
+[click]In 2021 SPACE added a human-centric model: productivity is multi-dimensional, and satisfaction, well-being and collaboration count.
+[click]In 2024 DX Core 4 tried to unify the two and tie engineering effort to business outcomes. Largely, these frameworks are aimed at the business and its bottom line, not the developer, and a lot of today's DevEx interest is driven top-down by companies selling something. That doesn't mean the frameworks lack value, but be careful how you use them. Anyone using them? Good value in all three.
+
+[click]Here is the twist with these frameworksk: every one of them quietly assumes a human is the one typing. When an agent writes the code, what do they still measure? That is the rest of this talk.
 -->
 
 ---
@@ -401,12 +398,15 @@ right:
 Source: Atlassian workforce research, the "AI efficiency paradox."
 
 <!--
-Atlassian's workforce research, a separate study with no connection to DORA, describes an "AI efficiency paradox": individual speed gains back up at review and approval before they reach the organization. AI didn't remove the pain, it moved it. Typing got faster. Trusting, reviewing and governing got slower. If your DevEx program measures only the first half of that trade, you're measuring half the story. Every fix in the second half of this talk lands in that right-hand column.
+Atlassian's workforce research, a separate study with no connection to DORA, describes an "AI efficiency paradox": individual speed gains back up at review and approval before they reach the organization. AI didn't remove the pain, it moved it. Typing got faster. Trusting, reviewing and governing got slower.
+
+If your DevEx program measures only the first half of that trade, you're measuring half the story. Every fix in the second half of this talk lands in that right-hand column.
 -->
 
 ---
 layout: stats
 clicks: 4
+class: reveal-on-click
 title: What developers feel vs. what's measured
 stats:
   - value: "96%"
@@ -426,7 +426,9 @@ stats:
 <!--
 Why does verification cost so much? [click] Sonar asked 1,149 developers and found 96% don't fully trust that AI-generated code is functionally correct. [click] Only 48% always check it before committing. That gap is roughly where your production incidents live. Sixty-one percent named the failure mode: code that looks correct but isn't reliable. AI mistakes are quiet: it compiles, the tests pass, and three weeks later it does the wrong thing under load.
 
-[click] Then the METR randomized controlled trial: sixteen experienced developers, 246 real tasks. Before starting they predicted AI would make them 24% faster. Afterward they believed they had been about 20% faster. [click] The measured result: 19% slower. [pause]
+[click] Then the METR randomized controlled trial: sixteen experienced developers, 246 real tasks. Before starting they predicted AI would make them 24% faster. Afterward they believed they had been about 20% faster.
+
+[click] The measured result: 19% slower. [pause]
 
 Predicted faster. Felt faster. Measured slower. That is a developer-experience finding: the feeling and the data disagree, so a DevEx program needs both surveys and system data. Don't trust the sensation of speed.
 -->
@@ -449,13 +451,18 @@ boxes:
     detail: Platforms worth building on.
 ---
 
+Source: DORA's AI Capabilities Model, 2025.
+
 <!--
-Source: DORA's AI Capabilities Model, 2025. None of these are new ideas. DORA has recommended most of them for a decade. What is new is the finding that these practices are what determine whether AI adoption pays off, which means the answer to "how do we get a return on AI" and the answer to "how do we run a strong engineering organization" are the same answer. That answer is developer experience.
+None of these are new ideas. DORA has recommended most of them for a decade. What is new is the finding that these practices are what determine whether AI adoption pays off, which means the answer to "how do we get a return on AI" and the answer to "how do we run a strong engineering organization" are the same answer. That answer is developer experience.
+
+I feel at this point like Steve Ballmer - "Developer experience, developer experience, developer experience!" - but it's true. Plus I have less sweat under my arms than he did.
 -->
 
 ---
 layout: boxes
 title: Four pillars of world-class DevEx
+clicks: 2
 boxes:
   - title: Fast, high-quality feedback loops
     detail: Agent output validation is part of the loop, not an afterthought.
@@ -468,13 +475,16 @@ boxes:
 ---
 
 <!--
-The three typical pillars of DevEx (feedback loops, cognitive load, flow state) all survive contact with agentic tooling. They just get harder. The fourth is emerging in 2026 conversations: calibrated trust and governance. Teams that treat "which agent can touch which part of the codebase, under what review policy" as a deliberate design decision see fewer disasters than teams that just let the agent open PRs.
+The three typical pillars of DevEx (feedback loops, cognitive load, flow state) all survive contact with agentic tooling. They just get harder. The fourth is emerging in 2026 conversations: calibrated trust and governance.
 
-The common fix: make agent output small, checked early and easy to review, so verifying it doesn't eat the time it saved. Governance is next, after a cautionary tale.
+[click]Teams that treat "which agent can touch which part of the codebase, under what review policy" as a deliberate design decision see fewer disasters than teams that just let the agent open PRs, YOLO, it'll be fine, we'll fix it in production, assuming we still have production. Or customers.
+
+[click]The common fix: make agent output small, checked early and easy to review, so verifying it doesn't eat the time it saved. Governance is next, after a cautionary tale.
 -->
 
 ---
 layout: timeline
+class: reveal-on-click
 clicks: 4
 title: "If it can happen there..."
 events:
@@ -495,11 +505,9 @@ events:
 <!--
 In December 2025 one of Amazon's internal AI agents, a system called Kiro built to handle operational and coding work autonomously, was pointed at a production issue and decided the right move was to delete the environment and rebuild it. [click] It ran under an engineer's elevated permissions, so the two-person approval that normally gates a change that size didn't apply. Result: a thirteen-hour outage.
 
-[click] In March 2026, an incident tied to AI-assisted changes caused 120,000 lost orders and 1.6 million website errors. [click] Three days later a second, worse incident took the U.S. site down for about six hours, a 99% drop in North American order volume, roughly 6.3 million lost orders. Amazon disputes that AI was the primary cause and has called it user error. That is worth saying out loud, even though it doesn't change what happened.
+[click] In March 2026, an incident tied to AI-assisted changes caused 120,000 lost orders and 1.6 million website errors. [click] Three days later a second, worse incident took the U.S. site down for about six hrs, a 99% drop in North American order volume, roughly 6.3mil lost orders. Amazon disputes that AI was the primary cause, called it user error - but it doesn't change what happened.
 
-[click] The part to remember: the response was to reinstate mandatory senior-engineer review for AI-assisted changes. A human back in the loop, because an agent had been handed disposal authority instead of proposal authority. If it can happen at Amazon, a company with that much operational sophistication, "we're careful" isn't a strategy.
-
-So what does proposal authority look like for you? Five moves.
+[click] Their response was to reinstate mandatory senior-engineer review for AI-assisted changes. A human back in the loop, because an agent had been handed disposal authority instead of proposal authority. If it can happen at Amazon, "we're careful" isn't a strategy. So what does proposal authority look like for you? Five moves.
 -->
 
 ---
@@ -566,6 +574,7 @@ Goodhart's Law was already a risk. Agents make it worse, because it's now trivia
 layout: boxes
 title: How your metrics change with agents
 reveal: false
+clicks: 4
 boxes:
   - title: Cycle time
     detail: Include the time to understand what shipped.
@@ -606,14 +615,19 @@ boxes:
 <!--
 Original metrics still matter, but several change meaning. Cycle time can look great right up until an unreviewed agent change causes an incident. PR review time frequently becomes the real constraint. Two new numbers worth tracking explicitly: AI change failure rate, and review-to-merge ratio on agent-authored PRs.
 
-If time allows: for cycle time, watch for rubber-stamped merges, because a fast merge on unreviewed code isn't a win. For rework rate, a rising AI rework rate means tighten specs and scope, not abandon the tooling. For time to first commit, the new-hire version is "time to first trusted agent task." For focus time, count agent check-ins and approvals as their own interruption category.
+[click]for cycle time, watch for rubber-stamped merges, because a fast merge on unreviewed code isn't a win. For rework rate, a rising AI rework rate means tighten specs and scope, not abandon the tooling.
 
-Meeting load: add explicit "agent sync" time to the ledger, because coordinating what three agents are doing overnight is real work and it's invisible if you don't name it. Watch for status-theater meetings where a human narrates what an agent already logged. Onboarding now has a second track too: onboarding the developer to your team's agentic workflows, permission tiers and review conventions.
+[click]For time to first commit, the new-hire version is "time to first trusted agent task." For focus time, count agent check-ins and approvals as their own interruption category.
+
+[click]Meeting load: add explicit "agent sync" time to the ledger, because coordinating what three agents are doing overnight is real work and it's invisible if you don't name it. Watch for status-theater meetings where a human narrates what an agent already logged. (probably could have added a tagline about agents, and how they make standups worse - faster. Especially with how they love to drone on about what they did overnight, and how they don't need to be in the meeting, but they are.)
+
+[click]Onboarding now has a second track too: onboarding the developer to your team's agentic workflows, permission tiers and review conventions.
 -->
 
 ---
 layout: boxes
 title: A practitioner-centric scorecard
+clicks: 3
 boxes:
   - title: Main-branch success rate
     detail: Benchmark 90%. Down to 70.8% last year, 76.7% now.
@@ -630,11 +644,11 @@ Sources: CircleCI 2026 State of Software Delivery and its July 2026 follow-up.
 <!--
 Merge Efficiency Ratio is how many validation cycles a change goes through before it merges. Lower is better: the median team needs 3.9, elite teams 1.3.
 
-These are sourced benchmarks, not mandates. Establish your own baseline, iterate, and revisit as your team's agent fluency grows. Pair them with the practitioner view from the last slide: cycle time, PR review time, rework, and reviewer load in whatever form you can track it. Measure main-branch throughput, not activity.
+[click]These are sourced benchmarks, not mandates. Establish your own baseline, iterate, and revisit as your team's agent fluency grows. Pair them with the practitioner view from the last slide: cycle time, PR review time, rework, and reviewer load in whatever form you can track it. Measure main-branch throughput, not activity.
 
-Build a healthy measurement culture: no framework is a silver bullet, agentic tooling included. Aim for continuous improvement, never judgment and never a way to justify headcount cuts. Explain the why behind every new agent metric. Involve the team in setting permission tiers instead of handing down policy. Watch trends, not absolutes. Combine the numbers with the qualitative: do people actually trust this?
+[click]Build a healthy measurement culture: no framework is a silver bullet, agentic tooling included. Aim for continuous improvement, never judgment and never a way to justify headcount cuts. Explain the why behind every new agent metric. Involve the team in setting permission tiers instead of handing down policy. Watch trends, not absolutes. Combine the numbers with the qualitative: do people actually trust this?
 
-If AI change failure rate runs meaningfully above your human baseline, that isn't an argument against the tooling. It's a signal to tighten governance and review before scaling usage.
+[click]If AI change failure rate runs meaningfully above your human baseline, that isn't an argument against the tooling. It's a signal to tighten governance and review before scaling usage.
 -->
 
 ---
@@ -645,7 +659,11 @@ attribution: Jeremy Meiss
 DevEx is ruthlessly eliminating the barriers and blockers that keep your practitioners from being successful, whether the one typing the next line is a person or an agent they're accountable for.
 
 <!--
-Investing in developer experience is still a direct investment in your organization's capacity to innovate. Agentic tooling didn't change that. It raised the stakes: the friction you fail to remove now compounds at agent speed, not human speed. Monday: tag agent PRs, measure main-branch throughput, set your first permission tier. Pause after the last line, then advance.
+Investing in developer experience is still a direct investment in your organization's capacity to innovate.
+
+Agentic tooling didn't change that. It raised the stakes: the friction you fail to remove now compounds at agent speed, not human speed.
+
+So on Monday: tag agent PRs, measure main-branch throughput, set your first permission tier.
 -->
 
 ---
