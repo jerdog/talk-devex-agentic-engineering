@@ -374,7 +374,7 @@ In 2014 DORA set the gold standard for measuring DevOps pipeline health, proving
 [click]In 2021 SPACE added a human-centric model: productivity is multi-dimensional, and satisfaction, well-being and collaboration count.
 [click]In 2024 DX Core 4 tried to unify the two and tie engineering effort to business outcomes. Largely, these frameworks are aimed at the business and its bottom line, not the developer, and a lot of today's DevEx interest is driven top-down by companies selling something. That doesn't mean the frameworks lack value, but be careful how you use them. Anyone using them? Good value in all three.
 
-[click]Here is the twist with these frameworksk: every one of them quietly assumes a human is the one typing. When an agent writes the code, what do they still measure? That is the rest of this talk.
+[click]Here is the twist with these frameworks: every one of them quietly assumes a human is the one typing. When an agent writes the code, what do they still measure? That is the rest of this talk.
 -->
 
 ---
