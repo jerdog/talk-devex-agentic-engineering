@@ -215,6 +215,7 @@ Paper: https://ieeexplore.ieee.org/document/6225984
 ---
 layout: default
 clicks: 1
+class: reveal-on-click
 ---
 
 # The bar moved
